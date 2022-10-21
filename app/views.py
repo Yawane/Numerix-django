@@ -9,7 +9,7 @@ def index(request):
     for c in Project.objects.all():
         themes.append(c.theme)
     themes.sort()
-    return render(request, 'home.html', context={"projects": projects, 'themes': themes})
+    return render(request, 'index.html', context={"projects": projects, 'themes': themes})
 
 
 def project_detail(request, slug):
