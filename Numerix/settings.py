@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2+3wbwcna!p!vt5=#bjxo#0$a+#c04h5uxo==f&15x)8u4g79#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://yawane.github.io/Numerix-django/']
 
 
 # Application definition
