@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Numérix - Le site</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/colors.css' %}">
+</head>
+<body>
+    <header>
+        <div class="top-header">
+            <div class="wrap title">
+                <a href="{% url 'home' %}">Projet Numérix</a>
+            </div>
+        </div>
+        <div class="top-bar dark">
+            <div class="top-bar-content wrap">
+                <nav class="navigation"><ul>
+                    <li><a href="{% url 'home' %}">Accueil</a></li>
+                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#notre-chaine-youtube">Notre chaine YouTube</a></li>
+                </ul></nav>
+
+                <div class="log-info">
+                    <ul>
+                        {% if user.is_authenticated %}
+                            <li id="username">{{ user.username }}</li>
+                            <li><a href="{% url 'logout' %}">Déconnexion</a></li>
+                        {% else %}
+                            <li><a href="{% url 'signup' %}">S'inscrire</a></li>
+                            <li><a href="{% url 'login' %}">Connexion</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Content -->
+    <div class="content">
+        <div class="main wrap">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad adipisci animi delectus dolore excepturi harum impedit labore laborum, magnam magni maxime neque nostrum rerum, sequi ullam unde, ut veniam.
+            {% block main %}{% endblock %}
+        </div>
+
+    </div>
+
+</body>
+</html>

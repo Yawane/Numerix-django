@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <main>
+        <section>
+            <h1>Dernière vidéo :</h1>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/DMBBztxtoig" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <section id="projects">
+            <h1>Nos projets :</h1>
+            {% for project in projects %}
+                <div class="project">
+                    <a href="{% url 'project' slug=project.slug %}">
+                        <h3>{{ project.title }}</h3>
+                        <img src="{{ project.thumbnail.url }}" alt="{{ project.title }}" style="max-width: 250px">
+                    </a>
+                    <h4>{{ project.theme }} | {{ project.date }}</h4>
+                    <p>{{ project.description }}</p>
+                </div>
+
+
+            {% endfor %}
+        </section>
+        <div class="items">
+
+        </div>
+    </main>
+    <aside>
+    <ul>
+        <li>Réseaux sociaux</li>
+        <li>Inscription mail pour prévenir de nouveaux articles</li>
+        <li>
+            <h5>Catérogies</h5>
+            <ul>
+                {% for theme in themes %}
+                    <li>{{ theme }}</li>
+                    <hr>
+                {% endfor %}
+
+            </ul>
+        </li>
+    </ul>
+    </aside>
+
+{% endblock %}
